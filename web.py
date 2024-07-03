@@ -2,8 +2,6 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
-import time
-
 df=pd.read_csv('/content/titanic.csv')
 
 model=joblib.load('/content/Rand.joblib')
@@ -27,9 +25,9 @@ def survival_prediction(input_data):
 def main():
   st.title('Survival Prediction')
   Age=st.slider('Age',0,70)
-  SibSp=st.number_input('SibSp',0,5)
-  Pclass=st.number_input('Pclass',0,5)
-  Parch=st.number_input('Parch',0,5)
+  SibSp=st.slider('SibSp',0,5)
+  Pclass=st.slider('Pclass',0,5)
+  Parch=st.slider('Parch',0,5)
   PassengerId=st.text_input('PassengerId')
   sex_encoder=LabelEncoder()
   embarked_encoder=LabelEncoder()
@@ -55,8 +53,7 @@ def main():
 
   if st.button('Survival Test Result'):
     survive=survival_prediction([Age,SibSp,Pclass,Parch,PassengerId,Sex,Fare,Embarked])
-  with st.spinner('loading...'):
-    time.sleep(3)
+
   st.success(survive)
 
 if __name__ == '__main__':

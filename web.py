@@ -61,7 +61,7 @@ def main():
 
   with st.spinner('loading...'):
     if st.button('Survival Test Result'):
-      survive=survival_prediction([Age,SibSp,Pclass,Parch,PassengerId,Sex,Fare,Embarked])
+      survive=survival_prediction(['Age','SibSp','Pclass','Parch','PassengerId','Sex','Fare','Embarked'])
       time.sleep(3)
     st.success(survive)
 

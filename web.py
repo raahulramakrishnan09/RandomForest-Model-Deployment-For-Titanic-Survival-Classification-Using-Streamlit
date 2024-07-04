@@ -3,7 +3,6 @@ import joblib
 import pandas as pd
 import numpy as np
 import time
-from sklearn.preprocessing import LabelEncoder
 
 df=pd.read_csv('/content/titanic.csv')
 
